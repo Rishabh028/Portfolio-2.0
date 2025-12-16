@@ -1,0 +1,97 @@
+================================================================================
+                        RISHABH RAJAK
+                 Based in India | IIT Guwahati
+================================================================================
+
+PROFESSIONAL SUMMARY
+Passionate full-stack developer with expertise in frontend technologies (React, 
+TypeScript, Tailwind CSS) and backend development (Node.js, Python, MongoDB). 
+Experienced in building responsive web applications and scalable systems.
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+Frontend Development:
+  • HTML5, CSS3, JavaScript (ES6+)
+  • React.js, Next.js, TypeScript
+  • Tailwind CSS, UI/UX Design
+  • Responsive Web Design, Web Animation
+
+Backend Development:
+  • Node.js, Express.js, Python
+  • MongoDB, MySQL Database Design
+  • RESTful APIs, Authentication
+
+Languages & Tools:
+  • C++, C, MATLAB
+  • Git & Version Control
+  • Arduino, IoT Development
+
+================================================================================
+PROFESSIONAL EXPERIENCE
+================================================================================
+
+Full Stack Developer
+[Project: Data Structure Visualization]
+  • Built interactive visualization platform for data structures
+  • Implemented React-based UI with smooth animations
+  • Deployed on production using modern build tools
+
+Developer Intern
+[Project: Real-time Chat Application]
+  • Developed real-time messaging system using Socket.io
+  • Created responsive frontend with React
+  • Implemented backend services with Node.js
+
+================================================================================
+PROJECTS
+================================================================================
+
+1. Data Structure Visualization Platform
+   • Interactive visualizations for algorithms and data structures
+   • Built with React, TypeScript, and Framer Motion
+   • Responsive design with smooth animations
+
+2. Real-time Chat Application
+   • Multi-user chat system with real-time updates
+   • Frontend: React, Styling: Tailwind CSS
+   • Backend: Node.js, WebSocket integration
+
+3. StayFinder Application
+   • Full-stack accommodation discovery platform
+   • TypeScript, React, Tailwind CSS frontend
+   • Node.js backend with MongoDB database
+
+4. Personal Portfolio Website
+   • Modern portfolio showcasing projects and skills
+   • Advanced animations with Framer Motion
+   • Scroll-triggered effects and interactive components
+
+================================================================================
+EDUCATION
+================================================================================
+
+Indian Institute of Technology (IIT) Guwahati
+Pursuing degree in Computer Science & Engineering
+
+================================================================================
+CERTIFICATIONS & ACHIEVEMENTS
+================================================================================
+
+  • Full Stack Web Development
+  • React & Modern JavaScript
+  • Database Design & Management
+  • IoT & Arduino Development
+  • Git & Version Control
+
+================================================================================
+CONTACT INFORMATION
+================================================================================
+
+Email: rishabh@example.com
+LinkedIn: linkedin.com/in/rishabh-rajak
+GitHub: github.com/rishabh-rajak
+Portfolio: rishabh-portfolio.com
+
+================================================================================
