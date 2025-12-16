@@ -4,7 +4,6 @@ A stunning, fully animated portfolio website built with React, TypeScript, and F
 
 **🌍 Live Demo:** https://portfolio-200-nwokipe7m-rishabh028s-projects.vercel.app/
 
-**📦 GitHub Repo:** https://github.com/Rishabh028/Portfolio-2.0
 
 ---
 
