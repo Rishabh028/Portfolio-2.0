@@ -2,7 +2,7 @@
 
 A stunning, fully animated portfolio website built with React, TypeScript, and Framer Motion. Features smooth scroll animations, interactive skill filters, project showcase, and a responsive design that works on all devices.
 
-**🌍 Live Demo:** https://portfolio-200-nwokipe7m-rishabh028s-projects.vercel.app/
+**🌍 Live Demo:**(https://portfolio0028.netlify.app/)
 
 
 ---
@@ -247,4 +247,4 @@ MIT License - Feel free to use this project for personal or commercial purposes.
 
 **Made with ❤️ by Rishabh Rajak**
 
-✨ [Live Demo](https://portfolio-200-nwokipe7m-rishabh028s-projects.vercel.app/) | 📦 [GitHub](https://github.com/Rishabh028/Portfolio-2.0) | 🎨 [Portfolio](https://portfolio-200-nwokipe7m-rishabh028s-projects.vercel.app/)
+✨ [Live Demo](https://portfolio0028.netlify.app/) | 📦 [GitHub](https://github.com/Rishabh028/Portfolio-2.0) | 🎨 [Portfolio](https://portfolio0028.netlify.app/)
