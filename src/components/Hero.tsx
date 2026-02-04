@@ -60,7 +60,7 @@ const MarqueeText = ({ words, direction = 'left', speed = 20 }: { words: string[
         {repeatedWords.map((word, index) => (
           <span
             key={index}
-            className="text-[8vw] md:text-[6vw] font-bold text-foreground/[0.015] tracking-tight select-none"
+            className="text-[7vw] md:text-[6vw] font-bold text-foreground/10 tracking-tight select-none"
           >
             {word}
           </span>
