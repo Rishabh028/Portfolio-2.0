@@ -58,7 +58,7 @@ const projectsData = [
     description: 'Modern hotel booking platform with interactive maps and seamless reservation system.',
     tech: ['React', 'Supabase', 'Tailwind', '+3'],
     github: 'https://github.com/Rishabh028/StayFinder',
-    live: 'https://stay-finder-75qt.vercel.app/',
+    live: 'https://stay-finder-three.vercel.app/',
     longDescription: 'StayFinder Pro is a modern, full-stack online hotel booking platform designed to help users discover, book, and manage unique stays. Features include interactive map views, advanced search filters, and a complete host dashboard.',
     features: [
       { name: 'Secure Authentication', desc: 'JWT and Bcrypt.js powered signup/login with session persistence.' },
@@ -411,11 +411,12 @@ export const Projects = () => {
 
       {/* Project Dialog */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-background border border-foreground/20 text-foreground">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden bg-background border border-foreground/20 text-foreground flex flex-col">
           <DialogHeader>
             <DialogTitle className="text-3xl font-bold">{selectedProject?.title}</DialogTitle>
           </DialogHeader>
-          <div className="mt-4 space-y-6">
+          <div className="overflow-y-auto flex-1 pr-4" data-lenis-prevent>
+            <div className="mt-4 space-y-6">
             {/* Overview */}
             <div>
               <h4 className="font-semibold mb-2 text-lg">Overview</h4>
@@ -485,6 +486,7 @@ export const Projects = () => {
                   Live Demo
                 </a>
               )}
+            </div>
             </div>
           </div>
         </DialogContent>
