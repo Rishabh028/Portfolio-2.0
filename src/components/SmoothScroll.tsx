@@ -21,6 +21,9 @@ export const SmoothScroll = ({ children }: SmoothScrollProps) => {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    // Reset scroll position to top on page load
+    window.scrollTo(0, 0);
+    
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
