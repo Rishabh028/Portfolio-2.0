@@ -251,17 +251,17 @@ export const Hero = () => {
 
       {/* ── Layer 4: Main hero content ──────────────────────────────── */}
       <motion.div
-        className="relative z-50 h-full flex flex-col-reverse md:flex-row justify-center items-center px-4 max-w-7xl mx-auto gap-12 md:gap-24 pt-10 md:pt-0 -mt-8 md:-mt-24"
+        className="relative z-50 h-full flex flex-col-reverse md:flex-row justify-center items-center px-4 max-w-7xl mx-auto gap-12 md:gap-24 pt-10 md:pt-0 -mt-8 md:-mt-12"
         style={{ opacity: heroOpacity }}
       >
         {/* Left side texts */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left md:pl-16 lg:pl-32">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left md:pl-8 lg:pl-12">
           {/* Small intro */}
           <div
             className="mb-4 hero-anim hero-fade"
             style={{ animationDelay: '0.15s' }}
           >
-            <p className="text-white/80 text-base md:text-xl tracking-[0.3em] uppercase">
+            <p className="text-white/80 text-sm md:text-lg tracking-[0.3em] uppercase">
               Hey, I am
             </p>
           </div>
@@ -274,7 +274,7 @@ export const Hero = () => {
             >
               <AnimatedText
                 text="Rishabh"
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white leading-[0.9]"
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[0.9]"
                 delay={0.5}
               />
             </span>
@@ -286,7 +286,7 @@ export const Hero = () => {
             >
               <AnimatedText
                 text="Rajak"
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.9]"
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9]"
                 delay={0.9}
                 isOutline
               />
@@ -300,7 +300,7 @@ export const Hero = () => {
             transition={{ duration: 1, delay: 1.5 }}
             className="mb-10"
           >
-            <p className="text-white/70 text-base md:text-xl max-w-2xl font-light leading-relaxed">
+            <p className="text-white/70 text-sm md:text-lg max-w-2xl font-light leading-relaxed">
               Web Developer <span className="text-white/30 mx-2">|</span> Tech Enthusiast <span className="text-white/30 mx-2">|</span> Electronics and communication Engineer
             </p>
           </motion.div>
