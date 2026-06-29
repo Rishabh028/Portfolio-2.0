@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Code2 } from 'lucide-react';
+import glassVideo from '@/assets/glass-flower.mp4';
 
 const skillsData = [
   { name: 'HTML5', icon: '🌐', level: 75, category: 'Frontend' },
@@ -39,8 +40,20 @@ export const SkillsSection = () => {
       id="skills" 
       className="py-32 relative overflow-hidden bg-background"
     >
-      {/* Simple background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--foreground)/0.03)_0%,transparent_70%)]" />
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-40">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        >
+          <source src={glassVideo} type="video/mp4" />
+        </video>
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
 
       <motion.div 
         initial={{ opacity: 0 }}

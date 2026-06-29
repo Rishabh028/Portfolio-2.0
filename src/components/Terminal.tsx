@@ -18,7 +18,6 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
 │  education │ View education background                  │
 │  contact   │ Get contact information                    │
 │  social    │ View social media links                    │
-│  theme     │ Toggle dark/light mode                     │
 │  date      │ Show current date & time                   │
 │  whoami    │ Display user info                          │
 │  echo      │ Echo back your message                     │
@@ -155,20 +154,6 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
   ${now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
   },
 
-  theme: () => {
-    const html = document.documentElement;
-    const isLight = html.classList.contains('light');
-    if (isLight) {
-      html.classList.remove('light');
-      localStorage.setItem('theme', 'dark');
-      return '  🌙 Switched to Dark Mode';
-    } else {
-      html.classList.add('light');
-      localStorage.setItem('theme', 'light');
-      return '  ☀️ Switched to Light Mode';
-    }
-  },
-
   echo: (args: string[]) => `  ${args.join(' ')}`,
 
   open: (args: string[]) => {
@@ -227,7 +212,7 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
   },
 };
 
-const quickCommands = ['help', 'about', 'skills', 'projects', 'education', 'contact', 'neofetch', 'theme', 'clear'];
+const quickCommands = ['help', 'about', 'skills', 'projects', 'education', 'contact', 'neofetch', 'clear'];
 
 export const Terminal = () => {
   const [lines, setLines] = useState<TerminalLine[]>([

@@ -9,6 +9,7 @@ import { CustomCursor } from '@/components/CustomCursor';
 import { SmoothScroll } from '@/components/SmoothScroll';
 import { MobileWarning } from '@/components/MobileWarning';
 import { PageTransition } from '@/components/PageTransition';
+import { Chatbot } from '@/components/Chatbot';
 
 const Index = () => {
   return (
@@ -30,26 +31,29 @@ const Index = () => {
         <main>
           <Hero />
           
-          <PageTransition id="qualification">
+          <PageTransition>
             <Qualification />
           </PageTransition>
           
-          <PageTransition id="projects">
+          <PageTransition>
             <Projects />
           </PageTransition>
           
-          <PageTransition id="skills">
+          <PageTransition>
             <SkillsSection />
           </PageTransition>
           
-          <PageTransition id="terminal">
+          <PageTransition>
             <TerminalSection />
           </PageTransition>
           
-          <PageTransition id="contact">
+          <PageTransition>
             <Contact />
           </PageTransition>
         </main>
+        
+        {/* Global Chatbot */}
+        <Chatbot />
       </div>
     </SmoothScroll>
   );

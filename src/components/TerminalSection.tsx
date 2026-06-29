@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Terminal } from './Terminal';
+import glassVideo from '@/assets/glass-flower.mp4';
 
 export const TerminalSection = () => {
   const sectionRef = useRef(null);
@@ -13,8 +14,23 @@ export const TerminalSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} id="terminal" className="py-32 px-4 md:px-8 relative">
-      <motion.div style={{ opacity }} className="max-w-6xl mx-auto">
+    <section ref={sectionRef} id="terminal" className="py-32 px-4 md:px-8 relative overflow-hidden bg-background">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-40">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        >
+          <source src={glassVideo} type="video/mp4" />
+        </video>
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-background/70" />
+      </div>
+
+      <motion.div style={{ opacity }} className="max-w-6xl mx-auto relative z-10 pointer-events-auto">
         {/* Section Header */}
         <div className="mb-16 text-center">
           <motion.p

@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useSpring, useMotionValue, useVelocity } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
+import metalVideo from '@/assets/metal-human.mp4';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -114,6 +115,21 @@ export const Qualification = () => {
       id="qualification" 
       className="py-32 relative overflow-hidden"
     >
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-60">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        >
+          <source src={metalVideo} type="video/mp4" />
+        </video>
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-background/60" />
+      </div>
+
       {/* Continuous floating background elements */}
       <motion.div 
         className="absolute top-20 right-10 w-72 h-72 rounded-full blur-3xl opacity-20"

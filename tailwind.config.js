@@ -64,7 +64,10 @@ export default {
       },
       fontFamily: {
         sans: ['Space Grotesk', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        kanit: ['Kanit', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
