@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import heroImage from '@/assets/profile-1.jpg';
+import heroImage from '@/assets/profile-1.png';
 import { Download, ArrowDown } from 'lucide-react';
 
 const BG_IMAGE_1 =
