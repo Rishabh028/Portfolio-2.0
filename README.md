@@ -2,7 +2,7 @@
 
 A stunning, fully animated portfolio website built with React, TypeScript, and Framer Motion. Features smooth scroll animations, interactive skill filters, project showcase, and a responsive design that works on all devices.
 
-   <a href="https://our-voice-our-rights-kyrgtd2ew-rishabh028s-projects.vercel.app/">
+   <a href="https://portfolio-2-0-theta-six.vercel.app/">
     <img alt="Live Demo" src="https://img.shields.io/badge/Live_Demo-View_Site-28a745?style=for-the-badge&logo=vercel"/>
   </a>
 
