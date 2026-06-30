@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import heroImage from '@/assets/profile-1.png';
+import profileInner from '@/assets/profile-inner.jpg';
 import { Download, ArrowDown } from 'lucide-react';
 
 const BG_IMAGE_1 =
@@ -341,12 +342,34 @@ export const Hero = () => {
               <div className="w-full h-full rounded-full bg-black" />
             </motion.div>
 
-            {/* Profile photo */}
-            <img
-              src={heroImage}
-              alt="Rishabh Rajak"
-              className="absolute inset-[4px] w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full object-cover"
-            />
+            {/* Profile photo container */}
+            <div 
+              className="group absolute inset-[4px] w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+                e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+              }}
+            >
+              {/* Base profile image */}
+              <img
+                src={heroImage}
+                alt="Rishabh Rajak"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Inner profile image (Spotlight Reveal) */}
+              <img
+                src={profileInner}
+                alt="Rishabh Rajak Inner"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{
+                  maskImage: 'radial-gradient(circle 100px at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(circle 100px at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 100%)'
+                }}
+              />
+            </div>
           </div>
         </motion.div>
       </motion.div>
