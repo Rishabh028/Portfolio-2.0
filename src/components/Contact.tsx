@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useVelocity } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
-import glassVideo from '@/assets/glass-flower.mp4';
+import { HlsVideo } from './HlsVideo';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -47,18 +47,19 @@ export const Contact = () => {
       className="relative overflow-hidden bg-background"
     >
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-40">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute inset-0 w-full h-full object-cover scale-105"
-        >
-          <source src={glassVideo} type="video/mp4" />
-        </video>
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full scale-[1.02] z-0 pointer-events-none overflow-hidden">
+          <HlsVideo 
+            src="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/12a9780eeb1ea015801a5f55cf2e9d3d/manifest/video.m3u8"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-background/50" />
       </div>
       {/* Continuous floating background elements */}
       <motion.div 
