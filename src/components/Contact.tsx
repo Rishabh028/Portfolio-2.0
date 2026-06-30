@@ -50,7 +50,7 @@ export const Contact = () => {
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <div className="absolute inset-0 w-full h-full scale-[1.02] z-0 pointer-events-none overflow-hidden">
           <HlsVideo 
-            src="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/12a9780eeb1ea015801a5f55cf2e9d3d/manifest/video.m3u8"
+            src="https://stream.mux.com/01yW6GoUz01OTXk5w1Rt1MHkJWlCGIwj46SUONJZ4DJUE.m3u8"
             autoPlay
             loop
             muted
