@@ -42,5 +42,14 @@ export const HlsVideo = ({ src, ...props }: HlsVideoProps) => {
     };
   }, [src, props.autoPlay]);
 
-  return <video ref={videoRef} {...props} />;
+  return (
+    <video 
+      ref={videoRef} 
+      autoPlay={props.autoPlay} 
+      loop={props.loop} 
+      muted={props.muted} 
+      playsInline={props.playsInline}
+      {...props} 
+    />
+  );
 };
