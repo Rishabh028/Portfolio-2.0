@@ -5,13 +5,6 @@ import { HlsVideo } from './HlsVideo';
 
 export const TerminalSection = () => {
   const sectionRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <section ref={sectionRef} id="terminal" className="py-32 px-4 md:px-8 relative overflow-hidden bg-background">
@@ -31,7 +24,7 @@ export const TerminalSection = () => {
         <div className="absolute inset-0 bg-background/50" />
       </div>
 
-      <motion.div style={{ opacity }} className="max-w-6xl mx-auto relative z-10 pointer-events-auto">
+      <motion.div className="max-w-6xl mx-auto relative z-10 pointer-events-auto">
         {/* Section Header */}
         <div className="mb-16 text-center">
           <motion.p

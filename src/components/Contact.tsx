@@ -19,15 +19,6 @@ export const Contact = () => {
   const [footerHeight, setFooterHeight] = useState(0);
   const timeRef = useRef(0);
 
-  const { scrollYProgress } = useScroll({ 
-    target: sectionRef, 
-    offset: ["start end", "end start"] 
-  });
-  
-
-  
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-
   useEffect(() => {
     if (footerRef.current) {
       setFooterHeight(footerRef.current.offsetHeight);
@@ -77,7 +68,6 @@ export const Contact = () => {
       
       <motion.div
         ref={footerRef}
-        style={{ opacity }}
         className="py-20 px-4 md:px-8 border-t border-foreground/10 relative z-10"
       >
         <div className="max-w-6xl mx-auto">

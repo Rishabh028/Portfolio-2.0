@@ -228,11 +228,11 @@ export const Hero = () => {
   };
 
   return (
-    <section
+    <motion.section
       ref={sectionRef}
       id="home"
       className="relative w-full overflow-hidden bg-black"
-      style={{ height: '100dvh' }}
+      style={{ height: '100dvh', opacity: heroOpacity }}
     >
       {/* ── Layer 1: Base image ──────────────────────────────────────── */}
       <div
@@ -253,7 +253,6 @@ export const Hero = () => {
       {/* ── Layer 4: Main hero content ──────────────────────────────── */}
       <motion.div
         className="relative z-50 h-full flex flex-col-reverse md:flex-row justify-center items-center px-4 max-w-7xl mx-auto gap-12 md:gap-24 pt-10 md:pt-0 -mt-8 md:-mt-12"
-        style={{ opacity: heroOpacity }}
       >
         {/* Left side texts */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left md:pl-8 lg:pl-12">
@@ -395,6 +394,6 @@ export const Hero = () => {
 
       {/* ── Bottom gradient blend into next section ─────────────────── */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent pointer-events-none z-50" />
-    </section>
+    </motion.section>
   );
 };

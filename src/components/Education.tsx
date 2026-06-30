@@ -46,21 +46,11 @@ export const Education = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(ref, { once: false, margin: '-100px' });
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.8]);
-  const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -100]);
-
   return (
     <section ref={sectionRef} id="education" className="py-20 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10" />
       
       <motion.div 
-        style={{ opacity, scale, y }}
         className="container mx-auto px-4"
       >
         <motion.div
