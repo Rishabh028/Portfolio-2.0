@@ -92,9 +92,12 @@ const projectsData = [
       'Doctor Finder & Booking by specialty, location, and ratings',
       'AI-powered Symptom Checker with doctor recommendations',
       'Secure digital health record management (ABHA compatible)',
-      'Telemedicine with Video consultations',
+      'Lab Tests & Pharmacy Medicine ordering with home delivery',
+      'Telemedicine via Video consultations with doctors',
+      'Health Forum & Articles for community discussions and wellness tips',
+      'Comprehensive Appointment & Multi-user Support (Patient, Doctor, Hospital, Lab Partner)'
     ],
-    techStack: ['React 18.2', 'React Router 6', 'React Query 5', 'Tailwind CSS', 'Base44 API']
+    techStack: ['React 18.2', 'React Router 6', 'React Query 5', 'Tailwind CSS', 'Framer Motion', 'Lucide React', 'Vite 5', 'Base44 API', 'Axios', 'Date-fns']
   },
   {
     id: 'codeverse',
@@ -104,14 +107,16 @@ const projectsData = [
     image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
     image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
     image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85',
-    description: 'CodeVerse is a feature-rich, web-based platform designed as a LeetCode clone. It provides a space for developers to practice and hone their data structures and algorithms skills with an interactive coding environment.',
+    description: 'CodeVerse is a feature-rich, web-based platform designed as a LeetCode clone. It provides a space for developers to practice and hone their data structures and algorithms skills with an interactive coding environment, detailed problem descriptions, and user progress tracking.',
     github: 'https://github.com/Rishabh028/CodeVerse',
     live: 'https://code-verse-6ji0ghvlk-rishabh028s-projects.vercel.app/',
     features: [
       'Full User Authentication with Firebase',
       'Dynamic Problem List fetched in real-time from Firestore',
+      'Detailed Problem View with description, examples, and constraints',
       'Interactive Code Editor for writing and testing solutions',
-      'Embedded Video Solutions & User Progress Tracking',
+      'User Progress Tracking (solved, liked, disliked, starred)',
+      'Embedded Video Solutions for problems'
     ],
     techStack: ['Next.js', 'Firebase', 'Tailwind CSS']
   },
@@ -129,8 +134,11 @@ const projectsData = [
     features: [
       'Secure User Authentication powered by Supabase',
       'Dynamic Hotel Search with advanced filtering',
+      'Detailed Hotel Pages with photo galleries, amenities, and reviews',
       'Personalized User Dashboard & Wishlist Functionality',
-      'Admin Control Panel & Owner Portal',
+      'Effortless Booking Flow for multi-step reservations',
+      'Admin Control Panel for managing bookings, users, and content',
+      'Owner Portal for managing property listings and analytics'
     ],
     techStack: ['React', 'Vite', 'Supabase', 'Tailwind CSS', 'Vercel']
   },
@@ -142,16 +150,18 @@ const projectsData = [
     image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
     image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
     image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
-    description: 'An anonymous, secure, and user-friendly reporting system designed to empower users and streamline administrative review.',
+    description: 'An anonymous, secure, and user-friendly reporting system designed to empower users and streamline administrative review. Built as a monorepo separating the client from the API.',
     github: 'https://github.com/Rishabh028/our-voice-our-rights',
     live: 'https://our-voice-our-rights-kyrgtd2ew-rishabh028s-projects.vercel.app/',
     features: [
-      'Anonymous Reporting with file attachments',
+      'Anonymous Reporting with file attachments and image uploads (Cloudinary)',
       'Secure User Authentication via Clerk',
-      'User Dashboard for tracking report statuses',
-      'Admin Module with comprehensive report management',
+      'User Dashboard for tracking report statuses (Pending, In Review, Resolved)',
+      'Separate Admin Authentication using JWT tokens',
+      'Admin Dashboard with comprehensive report management',
+      'Data Analytics for report types and resolution times'
     ],
-    techStack: ['React 18', 'TailwindCSS', 'Clerk', 'Node.js', 'Express', 'MongoDB']
+    techStack: ['React 18', 'TailwindCSS', 'Clerk', 'Axios', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT']
   }
 ];
 
