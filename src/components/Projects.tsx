@@ -3,6 +3,29 @@ import { useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ExternalLink, Github, FolderGit2 } from 'lucide-react';
 
+import codepilotImg1 from '@/assets/projects/codepilot-1.jpg';
+import codepilotImg2 from '@/assets/projects/codepilot-2.jpg';
+import codepilotImg3 from '@/assets/projects/codepilot-3.jpg';
+
+import swasthaiImg1 from '@/assets/projects/swasthai-1.jpg';
+import swasthaiImg2 from '@/assets/projects/swasthai-2.jpg';
+import swasthaiImg3 from '@/assets/projects/swasthai-3.jpg';
+
+import codeverseImg1 from '@/assets/projects/codeverse-3.jpg';
+import codeverseImg2 from '@/assets/projects/codeverse-2.jpg';
+import codeverseImg3 from '@/assets/projects/codeverse-1.jpg';
+
+import stayfinderImg1 from '@/assets/projects/stayfinder-1.jpg';
+import stayfinderImg2 from '@/assets/projects/stayfinder-2.jpg';
+import stayfinderImg3 from '@/assets/projects/stayfinder-3.jpg';
+
+import voltageImg1 from '@/assets/projects/voltage-3.jpg';
+import voltageImg2 from '@/assets/projects/voltage-2.jpg';
+import voltageImg3 from '@/assets/projects/voltage-1.jpg';
+import seatlockImg1 from '@/assets/projects/seatlock-3.jpg';
+import seatlockImg2 from '@/assets/projects/seatlock-2.jpg';
+import seatlockImg3 from '@/assets/projects/seatlock-1.jpg';
+
 // Reusable FadeIn Component
 interface FadeInProps {
   children: React.ReactNode;
@@ -63,9 +86,9 @@ const projectsData = [
     number: '01',
     category: 'AI Developer Tool',
     title: 'CodePilot AI',
-    image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-    image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-    image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    image1: codepilotImg1,
+    image2: codepilotImg2,
+    image3: codepilotImg3,
     description: 'An advanced AI-powered platform with 8 specialized agents that automate the entire software development lifecycle, from requirements analysis to production deployment.',
     github: 'https://github.com/Rishabh028/CodePilot-AI',
     live: '',
@@ -82,9 +105,9 @@ const projectsData = [
     number: '02',
     category: 'Healthcare Platform',
     title: 'SwasthAI',
-    image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-    image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-    image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
+    image1: swasthaiImg1,
+    image2: swasthaiImg2,
+    image3: swasthaiImg3,
     description: 'A modern, AI-powered healthcare platform connecting patients with doctors, laboratories, hospitals, and pharmacies. Built with React and powered by Base44 healthcare data platform.',
     github: 'https://github.com/Rishabh028/SwasthAI-Old',
     live: '',
@@ -104,9 +127,9 @@ const projectsData = [
     number: '03',
     category: 'Developer Tool',
     title: 'CodeVerse',
-    image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-    image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
-    image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85',
+    image1: codeverseImg1,
+    image2: codeverseImg2,
+    image3: codeverseImg3,
     description: 'CodeVerse is a feature-rich, web-based platform designed as a LeetCode clone. It provides a space for developers to practice and hone their data structures and algorithms skills with an interactive coding environment, detailed problem descriptions, and user progress tracking.',
     github: 'https://github.com/Rishabh028/CodeVerse',
     live: 'https://code-verse-6ji0ghvlk-rishabh028s-projects.vercel.app/',
@@ -125,9 +148,9 @@ const projectsData = [
     number: '04',
     category: 'Booking Platform',
     title: 'StayFinder Pro',
-    image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-    image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-    image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    image1: stayfinderImg2,
+    image2: stayfinderImg3,
+    image3: stayfinderImg1,
     description: 'A sleek, modern, and full-featured hotel booking platform built with React and Supabase. Discover, book, and manage your stays with a seamless and beautiful user experience.',
     github: 'https://github.com/Rishabh028/StayFinder',
     live: 'https://stay-finder-75qt.vercel.app/',
@@ -143,25 +166,48 @@ const projectsData = [
     techStack: ['React', 'Vite', 'Supabase', 'Tailwind CSS', 'Vercel']
   },
   {
-    id: 'ourvoice',
+    id: 'voltage',
     number: '05',
-    category: 'Social Platform',
-    title: 'Our Voice Our Rights',
-    image1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-    image2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-    image3: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
-    description: 'An anonymous, secure, and user-friendly reporting system designed to empower users and streamline administrative review. Built as a monorepo separating the client from the API.',
-    github: 'https://github.com/Rishabh028/our-voice-our-rights',
-    live: 'https://our-voice-our-rights-kyrgtd2ew-rishabh028s-projects.vercel.app/',
+    category: 'Edge Cloud Platform',
+    title: 'Voltage',
+    image1: voltageImg1,
+    image2: voltageImg2,
+    image3: voltageImg3,
+    description: 'A developer-first edge cloud deployment platform — inspired by Vercel and Render — that transforms any Git repository into a live, globally routed edge deployment with zero configuration.',
+    github: 'https://github.com/Rishabh028/Voltage',
+    live: '',
     features: [
-      'Anonymous Reporting with file attachments and image uploads (Cloudinary)',
-      'Secure User Authentication via Clerk',
-      'User Dashboard for tracking report statuses (Pending, In Review, Resolved)',
-      'Separate Admin Authentication using JWT tokens',
-      'Admin Dashboard with comprehensive report management',
-      'Data Analytics for report types and resolution times'
+      'Native Edge Builder Engine with zero-Docker lightweight compilation and monorepo auto-resolution',
+      'Real Dynamic Subdomain Routing with *.localhost and universal direct path URLs',
+      'Live Real-Time SSE Log Streaming piping compilation stdout and stderr directly into the dashboard terminal',
+      'AES-256-GCM authenticated zero-knowledge secrets encryption for environment variables',
+      'Automatic Framework Detection for Next.js (App & Pages Router), Vite, React, and static SPAs',
+      'Resilient Circuit-Breaker persistence with instant fallback to local disk storage during outages'
     ],
-    techStack: ['React 18', 'TailwindCSS', 'Clerk', 'Axios', 'Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT']
+    techStack: ['Next.js 14', 'TypeScript', 'Node.js', 'Express', 'Tailwind CSS', 'OpenResty', 'Server-Sent Events (SSE)', 'AES-256-GCM']
+  },
+  {
+    id: 'seatlock',
+    number: '06',
+    category: 'Distributed Systems',
+    title: 'SeatLock',
+    image1: seatlockImg1,
+    image2: seatlockImg2,
+    image3: seatlockImg3,
+    description: 'An industrial-grade, distributed event ticketing and seat reservation platform engineered to eliminate race conditions, double-bookings, phantom inventory, and webhook duplicates under extreme concurrent load.',
+    github: 'https://github.com/Rishabh028/SeatLock',
+    live: 'https://seatlock-front.vercel.app',
+    features: [
+      'Pessimistic Row-Level Locking (SELECT ... FOR UPDATE) preventing concurrent double-reservations',
+      'Storage-Engine Invariant via PostgreSQL partial unique index guaranteeing zero double-bookings',
+      'Interactive Three.js 3D Stadium Visualizer with volumetric lighting, tiered arcs, and orbit controls',
+      'Cursor-reactive 3D Holographic Tilt Ticket with metallic glare and dynamic QR verification',
+      'Full Stripe Payment Gateway integration with PaymentIntents and HMAC webhook signature verification',
+      'Google OAuth 2.0 cryptographic token verification via google-auth-library and auto user provisioning',
+      'Idempotent payment settlement with Transactional Outbox Pattern and BullMQ background workers',
+      'Automated concurrency test suite simulating 100 concurrent threads competing for identical seats'
+    ],
+    techStack: ['Next.js 16', 'TypeScript', 'Fastify', 'Three.js', 'PostgreSQL 16', 'Redis', 'Stripe API', 'BullMQ', 'Docker']
   }
 ];
 
@@ -291,7 +337,10 @@ export const Projects = () => {
           </motion.h2>
         </motion.div>
         
-        <div className="flex flex-col relative w-full h-[500vh]">
+        <div 
+          className="flex flex-col relative w-full"
+          style={{ height: `${projectsData.length * 100}vh` }}
+        >
           {projectsData.map((project, index) => (
             <ProjectCard 
               key={project.id} 
