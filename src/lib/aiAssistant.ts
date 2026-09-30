@@ -28,7 +28,7 @@ export const PORTFOLIO_KNOWLEDGE = {
     location: "Guwahati, Assam, India",
     email: "rishabhrajak2004@gmail.com",
     github: "https://github.com/Rishabh028",
-    linkedin: "https://www.linkedin.com/in/rishabh-rajak",
+    linkedin: "https://www.linkedin.com/in/rishabh-rajak-621318316/",
     summary: "Rishabh Rajak is an engineer and software developer at IIT Guwahati (ECE, Class of 2026). He specializes in scalable distributed systems, high-concurrency backend engineering, modern edge cloud platforms, interactive 3D web applications with Three.js, and IoT/embedded systems."
   },
   
@@ -310,7 +310,7 @@ export function generateAIResponse(userInput: string): AIResponse {
   if (/(contact|email|reach|message|talk to|socials|linkedin|github|twitter|phone|connect)\b/i.test(query)) {
     const { email, github, linkedin } = PORTFOLIO_KNOWLEDGE.profile;
     return {
-      text: `📬 **Let's Connect!**\n\nYou can reach Rishabh through any of the following channels:\n\n• **Email:** [${email}](mailto:${email})\n• **GitHub:** [github.com/Rishabh028](${github})\n• **LinkedIn:** [linkedin.com/in/rishabh-rajak](${linkedin})\n\nHe usually responds within 24 hours and is always excited to discuss software engineering, distributed systems, and collaborative ideas!`,
+      text: `📬 **Let's Connect!**\n\nYou can reach Rishabh through any of the following channels:\n\n• **Email:** [${email}](mailto:${email})\n• **GitHub:** [github.com/Rishabh028](${github})\n• **LinkedIn:** [linkedin.com/in/rishabh-rajak-621318316](${linkedin})\n\nHe usually responds within 24 hours and is always excited to discuss software engineering, distributed systems, and collaborative ideas!`,
       chips: ["💼 Hiring & Roles", "⚡ Explore Projects", "🛠️ Tech Stack"],
       links: [
         { label: "Send Email", url: `mailto:${email}` },

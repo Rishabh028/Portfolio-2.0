@@ -107,8 +107,8 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
   contact: `
 ┌───────────────── CONTACT INFORMATION ───────────────────┐
 │                                                         │
-│  📧 Email    │ rishabh.rajak@iitg.ac.in                 │
-│  💼 LinkedIn │ linkedin.com/in/rishabh-rajak            │
+│  📧 Email    │ rishabhrajak2004@gmail.com               │
+│  💼 LinkedIn │ linkedin.com/in/rishabh-rajak-621318316/ │
 │  🐙 GitHub   │ github.com/Rishabh028                    │
 │  🐦 Twitter  │ @rishabh_rajak                           │
 │                                                         │
@@ -120,7 +120,7 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
 ┌───────────────────── SOCIAL LINKS ──────────────────────┐
 │                                                         │
 │  GitHub    → github.com/Rishabh028                      │
-│  LinkedIn  → linkedin.com/in/rishabh-rajak              │
+│  LinkedIn  → linkedin.com/in/rishabh-rajak-621318316/   │
 │  Twitter   → @rishabh_rajak                             │
 │  Instagram → @rishabh_rajak                             │
 │                                                         │
