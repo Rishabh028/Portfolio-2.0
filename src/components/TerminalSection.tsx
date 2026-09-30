@@ -21,7 +21,7 @@ export const TerminalSection = () => {
           />
         </div>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-background/50" />
+        <div className="absolute inset-0 bg-background/35" />
       </div>
 
       <motion.div className="max-w-6xl mx-auto relative z-10 pointer-events-auto">

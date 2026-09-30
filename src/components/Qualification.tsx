@@ -116,7 +116,7 @@ export const Qualification = () => {
       className="py-32 relative overflow-hidden"
     >
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-60">
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-80">
         <video 
           autoPlay 
           loop 
@@ -127,7 +127,7 @@ export const Qualification = () => {
           <source src={metalVideo} type="video/mp4" />
         </video>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-background/45" />
       </div>
 
       {/* Continuous floating background elements */}

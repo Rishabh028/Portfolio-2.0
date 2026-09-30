@@ -50,7 +50,7 @@ export const Contact = () => {
           />
         </div>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-background/50" />
+        <div className="absolute inset-0 bg-background/35" />
       </div>
       {/* Continuous floating background elements */}
       <motion.div 

@@ -41,7 +41,7 @@ export const SkillsSection = () => {
       className="py-32 relative overflow-hidden bg-background"
     >
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-40">
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-70">
         <video 
           autoPlay 
           loop 
@@ -52,7 +52,7 @@ export const SkillsSection = () => {
           <source src={glassVideo} type="video/mp4" />
         </video>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-background/50" />
       </div>
 
       <motion.div 
