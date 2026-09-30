@@ -24,7 +24,7 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
 │  clear     │ Clear terminal                             │
 │  neofetch  │ System information                         │
 └─────────────────────────────────────────────────────────┘`,
-  
+
   about: `
 ╭──────────────────────────────────────────────────────────╮
 │                     👋 RISHABH RAJAK                     │
@@ -40,7 +40,7 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
 │  Currently exploring: AI/ML, Web3, System Design         │
 │                                                          │
 ╰──────────────────────────────────────────────────────────╯`,
-  
+
   skills: `
 ┌─────────────────── TECHNICAL SKILLS ────────────────────┐
 │                                                         │
@@ -57,38 +57,38 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
 │    C++ ███████░░░ 75%       MATLAB ██████░░░░ 60%       │
 │                                                         │
 └─────────────────────────────────────────────────────────┘`,
-  
+
   projects: `
 ╭────────────────── FEATURED PROJECTS ─────────────────────╮
 │                                                          │
-│  [01] BingoChat                                          │
+│  [01] CodePilot AI                                       │
+│       └─ Multi-agent autonomous software engineer        │
+│                                                          │
+│  [02] SwasthAI                                           │
+│       └─ AI healthcare platform & telemedicine           │
+│                                                          │
+│  [03] SeatLock                                           │
+│       └─ High-concurrency event booking & Three.js arena │
+│                                                          │
+│  [04] Voltage                                            │
+│       └─ Modern edge cloud deployment & runtime platform │
+│                                                          │
+│  [05] CodeVerse                                          │
+│       └─ LeetCode clone with interactive code editor     │
+│                                                          │
+│  [06] StayFinder                                         │
+│       └─ Full-stack hotel booking platform with Supabase │
+│                                                          │
+│  [07] BingoChat                                          │
 │       └─ Real-time chat with WebSocket & video calls     │
 │                                                          │
-│  [02] FinFlow                                            │
-│       └─ IoT smart pond monitoring system                │
-│                                                          │
-│  [03] Full Duplex Radio                                  │
-│       └─ Signal processing & communication system        │
-│                                                          │
-│  [04] Smart Home                                         │
-│       └─ IoT home automation with sensors                │
-│                                                          │
-│  [05] StayFinder                                         │
-│       └─ Full-stack hotel booking platform               │
-│                                                          │
-│  [06] Data Structure Visualization                       │
+│  [08] Data Structure Visualization                       │
 │       └─ Interactive algorithm visualizations            │
-│                                                          │
-│  [07] Our Voice Our Rights                               │
-│       └─ Social impact platform for awareness            │
-│                                                          │
-│  [08] CodeVerse                                          │
-│       └─ Collaborative real-time code editor             │
 │                                                          │
 ╰──────────────────────────────────────────────────────────╯
   
   Type 'open <number>' to view project details`,
-  
+
   education: `
 ╭──────────────────── EDUCATION ───────────────────────────╮
 │                                                          │
@@ -103,14 +103,14 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
 │     Class X (CBSE)                                       │
 │                                                          │
 ╰──────────────────────────────────────────────────────────╯`,
-  
+
   contact: `
 ┌───────────────── CONTACT INFORMATION ───────────────────┐
 │                                                         │
-│  📧 Email    │ rishabh.rajak@iitg.ac.in                │
-│  💼 LinkedIn │ linkedin.com/in/rishabh-rajak           │
-│  🐙 GitHub   │ github.com/Rishabh028                   │
-│  🐦 Twitter  │ @rishabh_rajak                          │
+│  📧 Email    │ rishabh.rajak@iitg.ac.in                 │
+│  💼 LinkedIn │ linkedin.com/in/rishabh-rajak            │
+│  🐙 GitHub   │ github.com/Rishabh028                    │
+│  🐦 Twitter  │ @rishabh_rajak                           │
 │                                                         │
 │  Feel free to reach out for collaborations!             │
 │                                                         │
@@ -139,10 +139,10 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
             ██    ██  ██    ██          Host: Rishabh Rajak
           ██      ██  ██      ██        Kernel: React 18.3.1
           ██                  ██        Uptime: ${Math.floor(Math.random() * 100)} days
-          ██      ████        ██        Shell: Terminal v2.0
-          ██    ██    ██      ██        DE: Framer Motion
-            ██          ██  ██          Theme: Dark [GTK2/3]
-              ██      ██  ██            Terminal: Custom
+          ██       ████       ██        Shell: Terminal v2.0
+          ██     ██    ██     ██        DE: Framer Motion
+            ██              ██          Theme: Dark [GTK2/3]
+              ██          ██            Terminal: Custom
                 ██████████              CPU: Brain @ ∞GHz
                                         Memory: Full Stack`,
 
@@ -160,53 +160,53 @@ const commands: Record<string, string | ((args: string[]) => string)> = {
     const projectNum = parseInt(args[0]);
     const projects: Record<number, string> = {
       1: `
+  CodePilot AI - Autonomous AI Developer Platform
+  ─────────────────────────────────────────
+  Tech: Node.js, Express, PostgreSQL, Prisma, Claude 3.5 Sonnet, React
+  Features: 8 Specialized AI Agents, WebSocket Streaming, Code Generation
+  Status: ✅ Active (github.com/Rishabh028/CodePilot-AI)`,
+      2: `
+  SwasthAI - AI Healthcare & Telemedicine Platform
+  ─────────────────────────────────────────
+  Tech: React 18, React Query, Tailwind CSS, Base44 API, Axios
+  Features: Doctor Booking, AI Symptom Checker, Digital Health Records
+  Status: ✅ Active (github.com/Rishabh028/SwasthAI-Old)`,
+      3: `
+  SeatLock - Event Booking & Concurrency System
+  ─────────────────────────────────────────
+  Tech: Next.js 16, Fastify, Three.js, PostgreSQL 16, Redis, Stripe
+  Features: Row-level mutex locks, 3D stadium arena, Holographic ticket
+  Status: ✅ Live (seatlock-front.vercel.app)`,
+      4: `
+  Voltage - Edge Cloud Deployment Platform
+  ─────────────────────────────────────────
+  Tech: Next.js 14, Express, TypeScript, SSE, OpenResty
+  Features: Zero-config edge builds, Subdomain routing, SSE log streaming
+  Status: 🚧 In Development (github.com/Rishabh028/Voltage)`,
+      5: `
+  CodeVerse - LeetCode Clone & Online Judge
+  ─────────────────────────────────────────
+  Tech: Next.js, Firebase, Firestore, Tailwind CSS, Monaco Editor
+  Features: Interactive code editor, Real-time problems, Video solutions
+  Status: ✅ Live (code-verse-6ji0ghvlk-rishabh028s-projects.vercel.app)`,
+      6: `
+  StayFinder Pro - Hotel Booking Platform
+  ─────────────────────────────────────────
+  Tech: React, Vite, Supabase, Tailwind CSS
+  Features: Dynamic hotel search, Supabase Auth, Owner & Admin portals
+  Status: ✅ Live (stay-finder-75qt.vercel.app)`,
+      7: `
   BingoChat - Real-time Chat Application
   ─────────────────────────────────────────
   Tech: React, Socket.IO, Zustand, Node.js, MongoDB
   Features: Real-time messaging, JWT Auth, Image sharing
   Status: ✅ Live`,
-      2: `
-  FinFlow - IoT Smart Pond Monitoring
-  ─────────────────────────────────────────
-  Tech: Arduino, NodeMCU, React, MongoDB
-  Features: Real-time sensors, Analytics dashboard
-  Status: ✅ Deployed`,
-      3: `
-  Full Duplex Radio - Communication System
-  ─────────────────────────────────────────
-  Tech: MATLAB, Signal Processing, SDR
-  Features: Simultaneous TX/RX, Noise reduction
-  Status: ✅ Complete`,
-      4: `
-  Smart Home - IoT Automation System
-  ─────────────────────────────────────────
-  Tech: Arduino, ESP8266, MQTT, React
-  Features: Voice control, Scheduling, Sensors
-  Status: ✅ Deployed`,
-      5: `
-  StayFinder - Hotel Booking Platform
-  ─────────────────────────────────────────
-  Tech: Next.js, Express, MongoDB, Cloudinary
-  Features: Search, Booking, Reviews, Maps
-  Status: ✅ Live`,
-      6: `
+      8: `
   Data Structure Visualization
   ─────────────────────────────────────────
   Tech: React, D3.js, TypeScript, Framer Motion
-  Features: Interactive animations, Step-by-step
+  Features: Interactive animations, Step-by-step visualizer
   Status: ✅ Live`,
-      7: `
-  Our Voice Our Rights - Awareness Platform
-  ─────────────────────────────────────────
-  Tech: React, Node.js, MongoDB
-  Features: Information hub, Resources, Community
-  Status: ✅ Live`,
-      8: `
-  CodeVerse - Collaborative Code Editor
-  ─────────────────────────────────────────
-  Tech: React, Monaco Editor, Socket.IO, Docker
-  Features: Real-time collab, Multi-language, Exec
-  Status: 🚧 In Development`,
     };
     return projects[projectNum] || '  Project not found. Use numbers 1-8.';
   },
@@ -216,12 +216,13 @@ const quickCommands = ['help', 'about', 'skills', 'projects', 'education', 'cont
 
 export const Terminal = () => {
   const [lines, setLines] = useState<TerminalLine[]>([
-    { type: 'output', content: `
+    {
+      type: 'output', content: `
 ╭──────────────────────────────────────────────────────────╮
-│         Welcome to Rishabh's Terminal v2.0              │
+│         Welcome to Rishabh's Terminal v2.0               │
 │                                                          │
-│  Type 'help' for available commands                     │
-│  Type 'neofetch' for system info                        │
+│  Type 'help' for available commands                      │
+│  Type 'neofetch' for system info                         │
 ╰──────────────────────────────────────────────────────────╯` },
   ]);
   const [currentInput, setCurrentInput] = useState('');
@@ -234,7 +235,7 @@ export const Terminal = () => {
     const parts = cmd.trim().split(' ');
     const mainCmd = parts[0].toLowerCase();
     const args = parts.slice(1);
-    
+
     if (mainCmd === 'clear') {
       setLines([]);
       return;
@@ -247,7 +248,7 @@ export const Terminal = () => {
 
     const command = commands[mainCmd];
     let output: string;
-    
+
     if (typeof command === 'function') {
       output = command(args);
     } else if (typeof command === 'string') {
@@ -256,7 +257,7 @@ export const Terminal = () => {
       output = `  Command not found: ${mainCmd}
   Type 'help' for available commands.`;
     }
-    
+
     setLines(prev => [
       ...prev,
       { type: 'input', content: cmd },
@@ -354,7 +355,7 @@ export const Terminal = () => {
               )}
             </motion.div>
           ))}
-          
+
           {/* Input Line */}
           <form onSubmit={handleSubmit} className="flex items-center">
             <span className="text-blue-400">user@portfolio</span>
