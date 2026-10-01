@@ -20,19 +20,27 @@ export const Navigation = () => {
   useMotionValueEvent(scrollYProgress, "change", (latest) => setIsScrolled(latest > 0.02));
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const scrollPosition = window.innerHeight / 3;
-      const sections = navItems.map(item => document.getElementById(item.id));
-      sections.forEach((section, index) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= scrollPosition && rect.bottom > scrollPosition) {
-            setActiveSection(navItems[index].id);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollPosition = window.innerHeight / 3;
+          for (let i = 0; i < navItems.length; i++) {
+            const section = document.getElementById(navItems[i].id);
+            if (section) {
+              const rect = section.getBoundingClientRect();
+              if (rect.top <= scrollPosition && rect.bottom > scrollPosition) {
+                setActiveSection(navItems[i].id);
+                break;
+              }
+            }
           }
-        }
-      });
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

@@ -25,13 +25,13 @@ export const SmoothScroll = ({ children }: SmoothScrollProps) => {
     window.scrollTo(0, 0);
     
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      touchMultiplier: 2,
-      lerp: 0.1, // Luxurious drift feel
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.5,
     });
 
     lenisRef.current = lenis;
@@ -39,19 +39,17 @@ export const SmoothScroll = ({ children }: SmoothScrollProps) => {
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const tickerUpdate = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
 
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.add(tickerUpdate);
 
     // Make lenis available globally for scroll to functionality
     (window as any).lenis = lenis;
 
     return () => {
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
+      gsap.ticker.remove(tickerUpdate);
       lenis.destroy();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };

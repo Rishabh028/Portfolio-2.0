@@ -16,14 +16,14 @@ export const PageTransition = ({ children, id, className = '' }: PageTransitionP
   });
 
   // Smooth continuous scroll-linked transforms (work both directions)
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [60, 0, 0, -60]);
+  const scale = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.98, 1, 1, 0.98]);
 
-  // Spring versions for smooth interpolation
-  const springY = useSpring(y, { stiffness: 80, damping: 20 });
-  const springScale = useSpring(scale, { stiffness: 80, damping: 20 });
-  const springOpacity = useSpring(opacity, { stiffness: 80, damping: 20 });
+  // High-performance responsive springs matching Lenis frame rate
+  const springY = useSpring(y, { stiffness: 180, damping: 28 });
+  const springScale = useSpring(scale, { stiffness: 180, damping: 28 });
+  const springOpacity = useSpring(opacity, { stiffness: 180, damping: 28 });
 
   return (
     <motion.div
@@ -34,6 +34,7 @@ export const PageTransition = ({ children, id, className = '' }: PageTransitionP
         opacity: springOpacity,
         y: springY,
         scale: springScale,
+        willChange: 'transform, opacity',
       }}
     >
       {children}

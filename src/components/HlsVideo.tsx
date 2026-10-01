@@ -35,7 +35,18 @@ export const HlsVideo = ({ src, ...props }: HlsVideoProps) => {
       });
     }
 
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.05 });
+
+    observer.observe(video);
+
     return () => {
+      observer.disconnect();
       if (hls) {
         hls.destroy();
       }

@@ -96,97 +96,38 @@ const MagneticButton = ({
   );
 };
 
-// ─── RevealLayer: cursor-spotlight canvas mask ────────────────────────────
+// ─── RevealLayer: cursor-spotlight CSS mask ────────────────────────────
 const RevealLayer = ({
   image,
-  cursorX,
-  cursorY,
+  revealRef,
 }: {
   image: string;
-  cursorX: number;
-  cursorY: number;
+  revealRef: React.RefObject<HTMLDivElement>;
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const revealRef = useRef<HTMLDivElement>(null);
-
-  // Size the canvas to the viewport on mount + resize
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
-  }, []);
-
-  // On every cursor move, redraw the radial-gradient mask
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const reveal = revealRef.current;
-    if (!canvas || !reveal) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const gradient = ctx.createRadialGradient(
-      cursorX,
-      cursorY,
-      0,
-      cursorX,
-      cursorY,
-      SPOTLIGHT_R,
-    );
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.4, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.6, 'rgba(255,255,255,0.75)');
-    gradient.addColorStop(0.75, 'rgba(255,255,255,0.4)');
-    gradient.addColorStop(0.88, 'rgba(255,255,255,0.12)');
-    gradient.addColorStop(1, 'rgba(255,255,255,0)');
-
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(cursorX, cursorY, SPOTLIGHT_R, 0, Math.PI * 2);
-    ctx.fill();
-
-    const dataURL = canvas.toDataURL();
-    reveal.style.maskImage = `url(${dataURL})`;
-    reveal.style.webkitMaskImage = `url(${dataURL})`;
-    reveal.style.maskSize = '100% 100%';
-    (reveal.style as any).webkitMaskSize = '100% 100%';
-  }, [cursorX, cursorY]);
-
   return (
-    <>
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 pointer-events-none"
-        style={{ display: 'none' }}
-      />
-      <div
-        ref={revealRef}
-        className="absolute inset-0 bg-center bg-cover bg-no-repeat z-30 pointer-events-none"
-        style={{ backgroundImage: `url(${image})` }}
-      />
-    </>
+    <div
+      ref={revealRef}
+      className="absolute inset-0 bg-center bg-cover bg-no-repeat z-30 pointer-events-none will-change-[mask-image]"
+      style={{
+        backgroundImage: `url(${image})`,
+        maskImage: 'radial-gradient(circle 260px at -999px -999px, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.12) 88%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(circle 260px at -999px -999px, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.12) 88%, transparent 100%)',
+      }}
+    />
   );
 };
 
 // ─── Hero ─────────────────────────────────────────────────────────────────
 export const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const revealRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Cursor tracking with RAF-smoothed lerp
-  const [cursorPos, setCursorPos] = useState({ x: -999, y: -999 });
+  // Cursor tracking with RAF-smoothed lerp - zero React re-renders
   const mouse = useRef({ x: -999, y: -999 });
   const smooth = useRef({ x: -999, y: -999 });
   const rafRef = useRef<number>(0);
+  const isVisible = useRef(true);
 
   // Scroll-linked hero fade
   const { scrollYProgress } = useScroll({
@@ -198,23 +139,62 @@ export const Hero = () => {
   useEffect(() => {
     setIsLoaded(true);
 
+    const updateMask = () => {
+      if (!isVisible.current) {
+        rafRef.current = 0;
+        return;
+      }
+
+      const dx = mouse.current.x - smooth.current.x;
+      const dy = mouse.current.y - smooth.current.y;
+      smooth.current.x += dx * 0.15;
+      smooth.current.y += dy * 0.15;
+
+      if (revealRef.current) {
+        const mask = `radial-gradient(circle ${SPOTLIGHT_R}px at ${smooth.current.x.toFixed(1)}px ${smooth.current.y.toFixed(1)}px, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.75) 60%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.12) 88%, transparent 100%)`;
+        revealRef.current.style.maskImage = mask;
+        revealRef.current.style.webkitMaskImage = mask;
+      }
+
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        rafRef.current = requestAnimationFrame(updateMask);
+      } else {
+        rafRef.current = 0;
+      }
+    };
+
+    const startLoop = () => {
+      if (!rafRef.current && isVisible.current) {
+        rafRef.current = requestAnimationFrame(updateMask);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          startLoop();
+        } else {
+          cancelAnimationFrame(rafRef.current);
+          rafRef.current = 0;
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
     const handleMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
+      startLoop();
     };
 
-    const animate = () => {
-      smooth.current.x += (mouse.current.x - smooth.current.x) * 0.1;
-      smooth.current.y += (mouse.current.y - smooth.current.y) * 0.1;
-      setCursorPos({ x: smooth.current.x, y: smooth.current.y });
-      rafRef.current = requestAnimationFrame(animate);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    rafRef.current = requestAnimationFrame(animate);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
     };
   }, []);
 
@@ -243,8 +223,7 @@ export const Hero = () => {
       {/* ── Layer 2: Reveal image (cursor spotlight) ─────────────────── */}
       <RevealLayer
         image={BG_IMAGE_2}
-        cursorX={cursorPos.x}
-        cursorY={cursorPos.y}
+        revealRef={revealRef}
       />
 
       {/* ── Layer 3: Dark vignette overlay for text readability ──────── */}

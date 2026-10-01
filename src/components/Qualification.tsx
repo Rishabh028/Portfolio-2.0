@@ -66,11 +66,14 @@ export const Qualification = () => {
   const springRotate1 = useSpring(floatRotate1, { stiffness: 15, damping: 8 });
   const springRotate2 = useSpring(floatRotate2, { stiffness: 12, damping: 6 });
 
-  useEffect(() => {
-    let animationId: number;
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isVisible = useRef(false);
 
-    // Continuous animation loop
+  useEffect(() => {
+    let animationId: number = 0;
+
     const animate = () => {
+      if (!isVisible.current) return;
       timeRef.current += 0.016;
       const t = timeRef.current;
       
@@ -82,8 +85,20 @@ export const Qualification = () => {
       
       animationId = requestAnimationFrame(animate);
     };
-    
-    animate();
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible.current = entry.isIntersecting;
+      if (entry.isIntersecting) {
+        videoRef.current?.play().catch(() => {});
+        cancelAnimationFrame(animationId);
+        animationId = requestAnimationFrame(animate);
+      } else {
+        videoRef.current?.pause();
+        cancelAnimationFrame(animationId);
+      }
+    }, { threshold: 0.05 });
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     // Timeline line reveal animation
     if (timelineRef.current) {
@@ -105,6 +120,7 @@ export const Qualification = () => {
 
     return () => {
       cancelAnimationFrame(animationId);
+      observer.disconnect();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
@@ -118,6 +134,7 @@ export const Qualification = () => {
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-80">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 
@@ -132,37 +149,41 @@ export const Qualification = () => {
 
       {/* Continuous floating background elements */}
       <motion.div 
-        className="absolute top-20 right-10 w-72 h-72 rounded-full blur-3xl opacity-20"
+        className="absolute top-20 right-10 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none"
         style={{ 
           background: 'var(--gradient-primary)', 
           y: springY1, 
           x: springX1,
-          rotate: springRotate1
+          rotate: springRotate1,
+          willChange: 'transform',
         }}
       />
       <motion.div 
-        className="absolute top-1/2 left-20 w-32 h-32 rounded-full blur-2xl opacity-15"
+        className="absolute top-1/2 left-20 w-32 h-32 rounded-full blur-2xl opacity-15 pointer-events-none"
         style={{ 
           background: 'hsl(var(--foreground) / 0.1)', 
           y: springY2,
-          rotate: springRotate2
+          rotate: springRotate2,
+          willChange: 'transform',
         }}
       />
       <motion.div 
-        className="absolute bottom-20 left-10 w-96 h-96 rounded-full blur-3xl opacity-10"
+        className="absolute bottom-20 left-10 w-96 h-96 rounded-full blur-3xl opacity-10 pointer-events-none"
         style={{ 
           background: 'var(--gradient-accent)',
           y: springY2,
           x: velocityX,
-          rotate: velocityRotate
+          rotate: velocityRotate,
+          willChange: 'transform',
         }}
       />
       <motion.div 
-        className="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full blur-xl opacity-10"
+        className="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full blur-xl opacity-10 pointer-events-none"
         style={{ 
           background: 'hsl(var(--foreground) / 0.1)',
           y: springY1,
-          rotate: springRotate2
+          rotate: springRotate2,
+          willChange: 'transform',
         }}
       />
 

@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Code2 } from 'lucide-react';
 import glassVideo from '@/assets/glass-flower.mp4';
 
@@ -26,9 +26,18 @@ const categories = ['All', 'Frontend', 'Backend', 'Languages', 'Tools', 'IoT'];
 
 export const SkillsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      videoRef.current?.play().catch(() => {});
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [isInView]);
 
   const filteredSkills = activeCategory === 'All' 
     ? skillsData 
@@ -43,6 +52,7 @@ export const SkillsSection = () => {
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-70">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 

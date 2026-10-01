@@ -26,23 +26,30 @@ export const CustomCursor = () => {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      if (!target) return;
       
-      if (
+      const isInteractive = (
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
-        target.closest('a') ||
-        target.closest('button') ||
+        Boolean(target.closest('a')) ||
+        Boolean(target.closest('button')) ||
         target.classList.contains('cursor-pointer') ||
         target.dataset.cursor === 'pointer'
-      ) {
+      );
+
+      if (isInteractive) {
         setIsHovering(true);
-        setCursorText(target.dataset.cursorText || '');
+        const text = target.dataset.cursorText || '';
+        setCursorText(text);
       }
     };
 
-    const handleMouseOut = () => {
-      setIsHovering(false);
-      setCursorText('');
+    const handleMouseOut = (e: MouseEvent) => {
+      const related = e.relatedTarget as HTMLElement;
+      if (!related || (!related.closest('a') && !related.closest('button') && !related.classList.contains('cursor-pointer') && related.dataset.cursor !== 'pointer')) {
+        setIsHovering(false);
+        setCursorText('');
+      }
     };
 
     // Check theme
@@ -55,11 +62,11 @@ export const CustomCursor = () => {
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     checkTheme();
 
-    window.addEventListener('mousemove', moveCursor);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener('mousemove', moveCursor, { passive: true });
+    window.addEventListener('mousedown', handleMouseDown, { passive: true });
+    window.addEventListener('mouseup', handleMouseUp, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
+    document.addEventListener('mouseout', handleMouseOut, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
@@ -91,6 +98,7 @@ export const CustomCursor = () => {
         style={{
           x: cursorX,
           y: cursorY,
+          willChange: 'transform',
         }}
       >
         <motion.div
@@ -126,6 +134,7 @@ export const CustomCursor = () => {
         style={{
           x: cursorX,
           y: cursorY,
+          willChange: 'transform',
         }}
       >
         <motion.div

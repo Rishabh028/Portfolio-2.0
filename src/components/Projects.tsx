@@ -224,6 +224,7 @@ const ProjectCard = ({ project, index, progress, totalCards, onViewDetails }: an
         style={{ 
           scale, 
           top: `calc(${index * 28}px)`,
+          willChange: 'transform',
         }} 
         className="w-full h-full max-w-7xl bg-[#0C0C0C] border-2 border-[#D7E2EA] p-4 sm:p-6 md:p-8 rounded-[40px] sm:rounded-[50px] md:rounded-[60px] origin-top flex flex-col relative overflow-hidden"
       >
@@ -258,19 +259,19 @@ const ProjectCard = ({ project, index, progress, totalCards, onViewDetails }: an
               className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] overflow-hidden bg-white/5 border border-white/10"
               style={{ height: 'clamp(130px, 16vw, 230px)' }}
             >
-              <img src={project.image1} alt={`${project.title} image 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src={project.image1} alt={`${project.title} image 1`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
             <div 
               className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] overflow-hidden bg-white/5 border border-white/10 flex-1"
               style={{ minHeight: 'clamp(160px, 22vw, 340px)' }}
             >
-              <img src={project.image2} alt={`${project.title} image 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src={project.image2} alt={`${project.title} image 2`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
           
           {/* Right column (60%) */}
           <div className="w-full sm:w-[60%] h-[60%] sm:h-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] overflow-hidden bg-white/5 border border-white/10">
-            <img src={project.image3} alt={`${project.title} image 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <img src={project.image3} alt={`${project.title} image 3`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           </div>
         </div>
       </motion.div>

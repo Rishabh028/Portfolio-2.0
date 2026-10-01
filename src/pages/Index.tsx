@@ -35,9 +35,7 @@ const Index = () => {
             <Qualification />
           </PageTransition>
           
-          <PageTransition>
-            <Projects />
-          </PageTransition>
+          <Projects />
           
           <PageTransition>
             <SkillsSection />
